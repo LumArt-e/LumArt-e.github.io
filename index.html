@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LumArt - Art Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <nav class="scroll-nav">
+    <a href="#about">&#8675;</a>
+    <a href="#products">&#8675;</a>
+    <a href="#contact">&#8675;</a>
+    <a href="#top">&#8673;</a>
+  </nav>
+
+  <header id="top">
+    <h1 id="lumart-title">LumArt - Art Studio</h1>
+    <p class="tagline">Un viaje visual a través de la historia y la expresión artística</p>
+  </header>
+
+  <main>
+    <section class="about" id="about">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        En <strong>LumArt</strong>, somos un estudio de arte especializado en artes plásticas, 
+        dominando diversas técnicas de pintura y estilos visuales. Nuestras obras incluyen tanto 
+        creaciones originales como reinterpretaciones de piezas icónicas de artistas reconocidos. 
+        Nuestra misión es llevarte un pedazo de historia a través del arte, transformando espacios 
+        con emoción, color y legado.
+      </p>
+    </section>
+
+    <section class="products" id="products">
+      <h2>Galería de Obras</h2>
+      <div class="gallery">
+        <div class="item"><img src="images/art1.jpg" alt="Arte 1"><p>Obra de arte 1 - Técnica mixta<br><strong>$100 USD</strong></p></div>
+        <div class="item"><img src="images/art2.jpg" alt="Arte 2"><p>Obra de arte 2 - Óleo sobre lienzo<br><strong>$120 USD</strong></p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contacto</h2>
+      <ul>
+        <li><strong>Teléfono:</strong> (por completar)</li>
+        <li><strong>Email:</strong> (por completar)</li>
+        <li><strong>Instagram:</strong> (por completar)</li>
+        <li><strong>Facebook:</strong> (por completar)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LumArt - Art Studio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="scripts/bg.js"></script>
+  <script src="scripts/dynamicTitle.js"></script>
+</body>
+</html>

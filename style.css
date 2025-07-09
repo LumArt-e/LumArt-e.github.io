@@ -1,0 +1,61 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  background: #111;
+  color: #fff;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+.scroll-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.scroll-nav a {
+  margin: 10px 0;
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.scroll-nav a:hover {
+  color: #ffcc00;
+}
+header, .section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+h1#lumart-title {
+  font-size: 4rem;
+  margin: 0;
+}
+.gallery {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gallery .item {
+  width: 250px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
