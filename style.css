@@ -201,7 +201,7 @@ body.scrolled #bg-video-top {
   flex-wrap: wrap;
 }
 .lumart-logo {
-  height: 68px;
+  height: 400px;
   width: auto;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(64,64,64,0.18);
@@ -448,7 +448,7 @@ html {
   left: 1.6rem;
   bottom: 1.6rem;
   z-index: 31;
-  width: 114px; /* 38px * 3 = 114px */
+  width: 250px; /* 38px * 3 = 114px */
   height: 114px;
   display: flex;
   align-items: center;
