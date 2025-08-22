@@ -322,7 +322,7 @@ header, main, footer {
 }
 .gallery-zoom-img {
   width: 100%;
-  max-height: 500px;
+  max-height: 250px;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(64,64,64,0.17);
