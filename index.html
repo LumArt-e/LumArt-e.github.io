@@ -15,6 +15,44 @@
   <!-- Fondo artístico interactivo -->
   <canvas id="bg-canvas"></canvas>
 
+
+  <!-- Video de fondo, detrás de todo -->
+  <video id="bg-video" autoplay loop muted playsinline>
+    <source src="video/fondo.mp4" type="video/mp4">
+    <source src="video/fondo.webm" type="video/webm">
+    Tu navegador no soporta video HTML5.
+  </video>
+  <!-- Logos decorativos grandes en los lados -->
+  <img src="images/logo_lumart.png" alt="Logo LumArt" class="background-logo background-logo-left" />
+  <img src="images/logo_lumart.png" alt="Logo LumArt" class="background-logo background-logo-right" />
+
+  <div class="lang-toggle">
+    <button onclick="switchLang('es')">ES</button>
+    <button onclick="switchLang('en')">EN</button>
+  </div>
+  <nav class="tab-nav-mobile">
+    <button class="hamburger" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="menu-list">
+      <li><a href="#top" class="menu-link">Inicio</a></li>
+      <li><a href="#about" class="menu-link">Sobre Nosotros</a></li>
+      <li><a href="#products" class="menu-link">Galería</a></li>
+      <li><a href="#contact" class="menu-link">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header id="top" class="tab-content fade-in section">
+    <div class="logo-title-wrap">
+      <h1 id="lumart-title"><span data-lang="title">LumArt - Art Studio</span></h1>
+    </div>
+    <p class="tagline"><span data-lang="tagline">Un viaje visual a través de la historia y la expresión artística</span></p>
+  </header>
+
+
+  
   <!-- Menú hamburguesa -->
   <nav class="tab-nav-mobile">
     <button class="hamburger" aria-label="Abrir menú">
@@ -72,7 +110,7 @@
 
     <!-- ... arriba igual ... -->
 <section class="products tab-content fade-in section" id="products">
-  <h2 data-lang="products_title">Galería de Obras</h2>
+  <h2 data-lang="products_title">Galería de Arte</h2>
   <div class="gallery-horizontal">
     <!-- Genera imágenes de obra1.jpg a obra20.jpg -->
     <!-- Puedes personalizar el nombre en <strong>Obra X</strong> según corresponda -->
