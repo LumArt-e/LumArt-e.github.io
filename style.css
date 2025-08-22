@@ -97,8 +97,8 @@ body.scrolled #bg-video-top {
   left: 1.6rem;
   bottom: 1.6rem;
   z-index: 31;
-  width: 114px; /* 38px * 3 = 114px */
-  height: 114px;
+  width: 220px; /* 38px * 3 = 114px */
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,7 +236,7 @@ body.scrolled #bg-video-top {
   flex-wrap: wrap;
 }
 .lumart-logo {
-  height: 124px;
+  height: 250px;
   width: auto;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(64,64,64,0.18);
@@ -322,7 +322,7 @@ header, main, footer {
 }
 .gallery-zoom-img {
   width: 100%;
-  max-height: 210px;
+  max-height: 500px;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(64,64,64,0.17);
