@@ -16,19 +16,19 @@
   <canvas id="bg-canvas"></canvas>
 
 
-  <!-- Primer video de fondo -->
-  <video id="bg-video" autoplay loop muted playsinline>
+ <!-- Video dinámico en el cuarto superior, se mueve con scroll -->
+  <video id="bg-video-top" autoplay loop muted playsinline>
     <source src="video/fondo.mp4" type="video/mp4">
     <source src="video/fondo.webm" type="video/webm">
     Tu navegador no soporta video HTML5.
   </video>
-  <!-- Segundo video de fondo, debajo del primero -->
-  <video id="bg-video-secondary" autoplay loop muted playsinline>
+  <!-- Video estático en el fondo para el resto de la pantalla -->
+  <video id="bg-video-static" autoplay loop muted playsinline>
     <source src="video/fondo2.mp4" type="video/mp4">
     <source src="video/fondo2.webm" type="video/webm">
     Tu navegador no soporta video HTML5.
   </video>
-
+  
   <div class="lang-toggle">
     <button onclick="switchLang('es')">ES</button>
     <button onclick="switchLang('en')">EN</button>
