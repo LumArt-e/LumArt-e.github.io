@@ -17,6 +17,21 @@ body, html {
   pointer-events: none;
 }
 
+
+/* Video estático para el fondo inferior (3/4 parte inferior) */
+#bg-video-static {
+  position: fixed;
+  top: 25vh;
+  left: 0;
+  width: 100vw;
+  height: 75vh;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 1;
+  pointer-events: none;
+  background: #000;
+}
+
 /* Video dinámico en el cuarto superior (se mueve con scroll) */
 #bg-video-top {
   position: absolute;
@@ -39,6 +54,9 @@ body {
 body.scrolled #bg-video-top {
   transform: translateY(calc(var(--scrollY, 0px)));
 }
+
+
+
 
 .lang-toggle {
   position: fixed;
