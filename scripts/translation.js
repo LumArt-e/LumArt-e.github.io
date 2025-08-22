@@ -1,3 +1,4 @@
+// Traducciones completas inglés/español para todos los textos visibles
 const translations = {
   es: {
     menu_home: "Inicio",
@@ -75,15 +76,16 @@ const translations = {
   }
 };
 
-window.switchLang = function(lang) {
+function switchLang(lang) {
   document.querySelectorAll('[data-lang]').forEach(el => {
     const key = el.getAttribute('data-lang');
     if (translations[lang] && translations[lang][key]) {
-      if (/<strong>|<br>|<em>|<span>|<ul>|<li>/.test(translations[lang][key])) {
+      // Si el texto tiene HTML, usar innerHTML, si no, textContent
+      if (translations[lang][key].includes("<strong>") || translations[lang][key].includes("<br>")) {
         el.innerHTML = translations[lang][key];
       } else {
         el.textContent = translations[lang][key];
       }
     }
   });
-};
+}

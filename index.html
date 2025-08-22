@@ -7,26 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Video dinámico en el cuarto superior, se mueve con scroll -->
-  <video id="bg-video-top" autoplay loop muted playsinline>
-    <source src="video/fondo.mp4" type="video/mp4">
-    <source src="video/fondo.webm" type="video/webm">
-    Tu navegador no soporta video HTML5.
-  </video>
-  <!-- Video estático en el fondo para el resto de la pantalla -->
-  <video id="bg-video-static" autoplay loop muted playsinline>
-    <source src="video/fondo2.mp4" type="video/mp4">
-    <source src="video/fondo2.webm" type="video/webm">
-    Tu navegador no soporta video HTML5.
-  </video>
-  <!-- Logos decorativos grandes en los lados -->
-  <img src="images/logo_lumart.png" alt="Logo LumArt" class="background-logo background-logo-left" />
-  <img src="images/logo_lumart.png" alt="Logo LumArt" class="background-logo background-logo-right" />
-
   <div class="lang-toggle">
     <button onclick="switchLang('es')">ES</button>
     <button onclick="switchLang('en')">EN</button>
   </div>
+
+  <!-- Fondo artístico interactivo -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Menú hamburguesa -->
   <nav class="tab-nav-mobile">
     <button class="hamburger" aria-label="Abrir menú">
       <span></span>
@@ -34,24 +23,25 @@
       <span></span>
     </button>
     <ul class="menu-list">
-      <li><a href="#top" class="menu-link" data-lang="menu_home">Inicio</a></li>
-      <li><a href="#about" class="menu-link" data-lang="menu_about">Sobre Nosotros</a></li>
-      <li><a href="#products" class="menu-link" data-lang="menu_gallery">Galería</a></li>
-      <li><a href="#contact" class="menu-link" data-lang="menu_contact">Contacto</a></li>
+      <li><a href="#top" class="menu-link">Inicio</a></li>
+      <li><a href="#about" class="menu-link">Sobre Nosotros</a></li>
+      <li><a href="#products" class="menu-link">Galería</a></li>
+      <li><a href="#contact" class="menu-link">Contacto</a></li>
     </ul>
   </nav>
 
   <header id="top" class="tab-content fade-in section">
     <div class="logo-title-wrap">
-      <h1 id="lumart-title" data-lang="title">LumArt - Art Studio</h1>
+      <img src="images/logo_lumart.png" alt="Logo LumArt" class="lumart-logo"/>
+      <h1 id="lumart-title"><span data-lang="title">LumArt - Art Studio</span></h1>
     </div>
-    <p class="tagline" data-lang="tagline">Un viaje visual a través de la historia y la expresión artística</p>
+    <p class="tagline"><span data-lang="tagline">Un viaje visual a través de la historia y la expresión artística</span></p>
   </header>
 
   <main>
     <section class="about tab-content fade-in section" id="about">
       <h2 data-lang="about_title">Sobre Nosotros</h2>
-      <p data-lang="about_intro">
+      <p>
         En <strong>LumArt</strong>, somos un estudio de arte especializado en artes plásticas, 
         dominando diversas técnicas de pintura y estilos visuales. Nuestras obras incluyen tanto 
         creaciones originales como reinterpretaciones de piezas icónicas de artistas reconocidos. 
@@ -59,91 +49,86 @@
         con emoción, color y legado.
       </p>
       <div class="about-subsection">
-        <h3 data-lang="mission_title">Misión</h3>
-        <p data-lang="mission">
-          Fomentar el aprecio por las artes visuales, de manos y corazón de quien los elabora.
-        </p>
-        <h3 data-lang="vision_title">Visión</h3>
-        <p data-lang="vision">
-          Ser un lugar de referencia cultural reconocido por la calidad de sus productos de arte.
-        </p>
-        <h3 data-lang="history_title">Nuestra Historia</h3>
-        <p data-lang="history">
+        <h3>Misión</h3>
+        <p>Fomentar el aprecio por las artes visuales, de manos y corazón de quien los elabora.</p>
+        <h3>Visión</h3>
+        <p>Ser un lugar de referencia cultural reconocido por la calidad de sus productos de arte.</p>
+        <h3>Nuestra Historia</h3>
+        <p>
           LumArt nació del sueño de crear un espacio donde la pasión por el arte se combina con la innovación y el respeto por la tradición. Desde nuestros inicios en 2020, hemos trabajado en fomentar la creatividad, la colaboración y el crecimiento artístico de nuestra comunidad.
         </p>
-        <h3 data-lang="values_title">Valores</h3>
+        <h3>Valores</h3>
         <ul>
-          <li data-lang="value_creativity"><strong>Creatividad:</strong> Fomentamos la expresión única de cada artista.</li>
-          <li data-lang="value_quality"><strong>Calidad:</strong> Cada obra busca la excelencia en técnica y significado.</li>
-          <li data-lang="value_commitment"><strong>Compromiso:</strong> Apostamos por la educación y la difusión cultural.</li>
+          <li><strong>Creatividad:</strong> Fomentamos la expresión única de cada artista.</li>
+          <li><strong>Calidad:</strong> Cada obra busca la excelencia en técnica y significado.</li>
+          <li><strong>Compromiso:</strong> Apostamos por la educación y la difusión cultural.</li>
         </ul>
-        <h3 data-lang="team_title">Equipo</h3>
-        <p data-lang="team">
+        <h3>Equipo</h3>
+        <p>
           Nuestro equipo está formado por expertos en arte, gestión cultural y educación artística, comprometidos con acercar el arte a todos los públicos.
         </p>
       </div>
     </section>
+
     <section class="products tab-content fade-in section" id="products">
       <h2 data-lang="products_title">Galería de Obras</h2>
       <div class="gallery-horizontal">
-        <!-- Ejemplo para 20 imágenes -->
-        <div class="gallery-item"><img src="images/obra1.jpg" alt="Obra 1" class="gallery-zoom-img"><p><strong data-lang="product1">Obra 1</strong></p></div>
-        <div class="gallery-item"><img src="images/obra2.jpg" alt="Obra 2" class="gallery-zoom-img"><p><strong data-lang="product2">Obra 2</strong></p></div>
-        <div class="gallery-item"><img src="images/obra3.jpg" alt="Obra 3" class="gallery-zoom-img"><p><strong data-lang="product3">Obra 3</strong></p></div>
-        <div class="gallery-item"><img src="images/obra4.jpg" alt="Obra 4" class="gallery-zoom-img"><p><strong data-lang="product4">Obra 4</strong></p></div>
-        <div class="gallery-item"><img src="images/obra5.jpg" alt="Obra 5" class="gallery-zoom-img"><p><strong data-lang="product5">Obra 5</strong></p></div>
-        <div class="gallery-item"><img src="images/obra6.jpg" alt="Obra 6" class="gallery-zoom-img"><p><strong data-lang="product6">Obra 6</strong></p></div>
-        <div class="gallery-item"><img src="images/obra7.jpg" alt="Obra 7" class="gallery-zoom-img"><p><strong data-lang="product7">Obra 7</strong></p></div>
-        <div class="gallery-item"><img src="images/obra8.jpg" alt="Obra 8" class="gallery-zoom-img"><p><strong data-lang="product8">Obra 8</strong></p></div>
-        <div class="gallery-item"><img src="images/obra9.jpg" alt="Obra 9" class="gallery-zoom-img"><p><strong data-lang="product9">Obra 9</strong></p></div>
-        <div class="gallery-item"><img src="images/obra10.jpg" alt="Obra 10" class="gallery-zoom-img"><p><strong data-lang="product10">Obra 10</strong></p></div>
-        <div class="gallery-item"><img src="images/obra11.jpg" alt="Obra 11" class="gallery-zoom-img"><p><strong data-lang="product11">Obra 11</strong></p></div>
-        <div class="gallery-item"><img src="images/obra12.jpg" alt="Obra 12" class="gallery-zoom-img"><p><strong data-lang="product12">Obra 12</strong></p></div>
-        <div class="gallery-item"><img src="images/obra13.jpg" alt="Obra 13" class="gallery-zoom-img"><p><strong data-lang="product13">Obra 13</strong></p></div>
-        <div class="gallery-item"><img src="images/obra14.jpg" alt="Obra 14" class="gallery-zoom-img"><p><strong data-lang="product14">Obra 14</strong></p></div>
-        <div class="gallery-item"><img src="images/obra15.jpg" alt="Obra 15" class="gallery-zoom-img"><p><strong data-lang="product15">Obra 15</strong></p></div>
-        <div class="gallery-item"><img src="images/obra16.jpg" alt="Obra 16" class="gallery-zoom-img"><p><strong data-lang="product16">Obra 16</strong></p></div>
-        <div class="gallery-item"><img src="images/obra17.jpg" alt="Obra 17" class="gallery-zoom-img"><p><strong data-lang="product17">Obra 17</strong></p></div>
-        <div class="gallery-item"><img src="images/obra18.jpg" alt="Obra 18" class="gallery-zoom-img"><p><strong data-lang="product18">Obra 18</strong></p></div>
-        <div class="gallery-item"><img src="images/obra19.jpg" alt="Obra 19" class="gallery-zoom-img"><p><strong data-lang="product19">Obra 19</strong></p></div>
-        <div class="gallery-item"><img src="images/obra20.jpg" alt="Obra 20" class="gallery-zoom-img"><p><strong data-lang="product20">Obra 20</strong></p></div>
+        <div class="gallery-item">
+          <img src="images/obra1.jpg" alt="Calle Colonial" class="gallery-zoom-img">
+          <p><strong>Calle Colonial</strong></p>
+        </div>
+        <div class="gallery-item">
+          <img src="images/obra2.jpg" alt="Auto Amarillo" class="gallery-zoom-img">
+          <p><strong>Auto Amarillo</strong></p>
+        </div>
+        <div class="gallery-item">
+          <img src="images/obra3.jpg" alt="Caballo" class="gallery-zoom-img">
+          <p><strong>Caballo</strong></p>
+        </div>
+        <div class="gallery-item">
+          <img src="images/obra4.jpg" alt="Iglesia Colonial" class="gallery-zoom-img">
+          <p><strong>Iglesia Colonial</strong></p>
+        </div>
       </div>
     </section>
+
     <section class="contact tab-content fade-in section" id="contact">
       <h2 data-lang="contact_title">Contacto</h2>
       <ul>
         <li>
-          <strong data-lang="phone_title">Teléfono:</strong>
+          <strong>Teléfono:</strong>
           <a href="https://wa.me/593983337795" target="_blank" class="contact-link whatsapp-link">
-            <span style="color:#25D366; font-weight:600;" data-lang="phone">+593 983 337 795</span>
+            <span style="color:#25D366; font-weight:600;">+593 983 337 795</span>
           </a>
         </li>
         <li>
-          <strong data-lang="email_title">Email:</strong>
-          <a href="mailto:lumar_2223@yahoo.com" class="contact-link email-link" style="color:#1976d2; font-weight:600;" data-lang="email">
+          <strong>Email:</strong>
+          <a href="mailto:lumar_2223@yahoo.com" class="contact-link email-link" style="color:#1976d2; font-weight:600;">
             lumar_2223@yahoo.com
           </a>
         </li>
         <li>
-          <strong data-lang="instagram_title">Instagram:</strong>
+          <strong>Instagram:</strong>
           <a href="https://instagram.com/Lum_Artstudio" target="_blank" class="insta-link" title="Instagram LumArt">
             <svg height="22" width="22" viewBox="0 0 32 32" class="insta-icon"><circle cx="16" cy="16" r="14" fill="#fff"/><path d="M16 9a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" fill="#E4405F"/><rect x="9" y="9" width="14" height="14" rx="7" fill="none" stroke="#E4405F" stroke-width="2"/></svg>
-            <span data-lang="instagram">@Lum_Artstudio</span>
+            <span>@Lum_Artstudio</span>
           </a>
         </li>
         <li>
-          <strong data-lang="facebook_title">Facebook:</strong>
-          <a href="https://facebook.com/Lum_ArtStudio" target="_blank" class="contact-link fb-link" style="color:#1976d2; font-weight:600;" data-lang="facebook">
+          <strong>Facebook:</strong>
+          <a href="https://facebook.com/Lum_ArtStudio" target="_blank" class="contact-link fb-link" style="color:#1976d2; font-weight:600;">
             Lum_ArtStudio
           </a>
         </li>
       </ul>
     </section>
   </main>
+
   <footer>
-    <p data-lang="footer">&copy; 2025 LumArt - Art Studio. Todos los derechos reservados.</p>
+    <p>&copy; 2025 <span data-lang="title">LumArt - Art Studio</span>. Todos los derechos reservados.</p>
   </footer>
-  <!-- Iconos flotantes -->
+
+  <!-- Iconos flotantes siempre visibles -->
   <a href="https://wa.me/593983337795" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 48 48" fill="none">
       <circle cx="24" cy="24" r="24" fill="#25D366"/>
@@ -153,14 +138,47 @@
   <a href="https://instagram.com/Lum_Artstudio" class="insta-float" target="_blank" title="Instagram LumArt">
     <svg height="38" width="38" viewBox="0 0 32 32" class="insta-icon"><circle cx="16" cy="16" r="14" fill="#fff"/><path d="M16 9a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" fill="#E4405F"/><rect x="9" y="9" width="14" height="14" rx="7" fill="none" stroke="#E4405F" stroke-width="2"/></svg>
   </a>
-  <!-- Logo flotante (triple tamaño que WhatsApp) -->
-  <a href="#top" class="logo-float" title="Ir al inicio">
-    <img src="images/logo_lumart.png" alt="Logo LumArt" />
-  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="scripts/bg.js"></script>
   <script src="scripts/menu.js"></script>
   <script src="scripts/section-transition.js"></script>
-  <script src="scripts/gallery-modal.js"></script>
-  <script src="scripts/translation.js"></script>
+  <script>
+    // Traducciones
+    const translations = {
+      es: {
+        title: "LumArt - Art Studio",
+        tagline: "Un viaje visual a través de la historia y la expresión artística",
+        about_title: "Sobre Nosotros",
+        products_title: "Galería de Obras",
+        contact_title: "Contacto",
+        product1: "Calle Colonial",
+        product2: "Auto Amarillo",
+        product3: "Caballo",
+        product4: "Iglesia Colonial",
+        footer: "© 2025 LumArt - Art Studio. Todos los derechos reservados."
+      },
+      en: {
+        title: "LumArt - Art Studio",
+        tagline: "A visual journey through history and artistic expression",
+        about_title: "About Us",
+        products_title: "Gallery",
+        contact_title: "Contact",
+        product1: "Colonial Street",
+        product2: "Yellow Car",
+        product3: "Horse",
+        product4: "Colonial Church",
+        footer: "© 2025 LumArt - Art Studio. All rights reserved."
+      }
+    };
+    function switchLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        const key = el.getAttribute('data-lang');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+  </script>
 </body>
 </html>
