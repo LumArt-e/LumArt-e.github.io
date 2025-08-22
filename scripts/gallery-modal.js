@@ -1,5 +1,3 @@
-// scripts/gallery-modal.js
-
 document.addEventListener('DOMContentLoaded', function () {
   const galleryImgs = document.querySelectorAll('.gallery-zoom-img');
   let modalBg = document.createElement('div');
@@ -31,14 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function setZoom(scale) {
     currentScale = Math.max(minScale, Math.min(scale, maxScale));
-    modalImg.style.transform = `scale(${currentScale})`;
+    modalImg.style.transform = `scale(${currentScale}) translate(${imgPos.x/currentScale}px,${imgPos.y/currentScale}px)`;
   }
 
+  // Doble click para abrir modal
   galleryImgs.forEach(img => {
-    img.addEventListener('click', function () {
+    img.addEventListener('dblclick', function () {
       modalImg.src = img.src;
       modalImg.alt = img.alt;
       setZoom(1);
+      imgPos = {x:0, y:0};
       modalBg.classList.remove('hide');
     });
   });
@@ -46,12 +46,16 @@ document.addEventListener('DOMContentLoaded', function () {
   closeBtn.addEventListener('click', function () {
     modalBg.classList.add('hide');
     modalImg.src = '';
+    setZoom(1);
+    imgPos = {x:0, y:0};
   });
 
   modalBg.addEventListener('click', function (e) {
     if (e.target === modalBg) {
       modalBg.classList.add('hide');
       modalImg.src = '';
+      setZoom(1);
+      imgPos = {x:0, y:0};
     }
   });
 
@@ -63,9 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   zoomResetBtn.addEventListener('click', function () {
     setZoom(1);
+    imgPos = {x:0, y:0};
+    modalImg.style.transform = `scale(1)`;
   });
 
-  // Permitir zoom con rueda del mouse
+  // Zoom con rueda de mouse
   modalImg.addEventListener('wheel', function (e) {
     if (!modalBg.classList.contains('hide')) {
       e.preventDefault();
@@ -105,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
       modalImg.style.transition = '';
     }
   });
+
   // Resetear posición al cambiar imagen o cerrar modal
   modalBg.addEventListener('transitionend', function(){
     if(modalBg.classList.contains('hide')){

@@ -1,17 +1,14 @@
-// scripts/menu.js
-
 document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.querySelector('.hamburger');
   const menuList = document.querySelector('.menu-list');
   const menuLinks = document.querySelectorAll('.menu-link');
-  
-  // Toggle menu
-  hamburger.addEventListener('click', function () {
+
+  hamburger.addEventListener('click', function (e) {
+    e.stopPropagation();
     menuList.classList.toggle('open');
     hamburger.classList.toggle('menu-open');
   });
 
-  // Smooth scroll and close menu on click
   menuLinks.forEach(link => {
     link.addEventListener('click', function (e) {
       menuList.classList.remove('open');
@@ -27,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Optional: close menu if click outside
-  document.addEventListener('click', function(e){
+  document.body.addEventListener('click', function(e){
     if (!menuList.contains(e.target) && !hamburger.contains(e.target)) {
       menuList.classList.remove('open');
       hamburger.classList.remove('menu-open');
