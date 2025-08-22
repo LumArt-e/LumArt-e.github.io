@@ -22,12 +22,13 @@ body, html {
   z-index: 10;
 }
 
-/* Videos de fondo estáticos y escalables */
-#bg-video,
-#bg-video-secondary {
+/* Video estático para el fondo inferior (3/4 parte inferior) */
+#bg-video-static {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 80vh;
+  top: 25vh;
+  left: 0;
+  width: 100vw;
+  height: 75vh;
   object-fit: cover;
   z-index: -2;
   opacity: 1;
@@ -35,6 +36,28 @@ body, html {
   background: #000;
 }
 
+/* Video dinámico en el cuarto superior (se mueve con scroll) */
+#bg-video-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 25vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1;
+  pointer-events: none;
+  background: #000;
+  will-change: transform;
+}
+
+/* Para que el video superior se mueva con scroll */
+body {
+  position: relative;
+}
+body.scrolled #bg-video-top {
+  transform: translateY(calc(var(--scrollY, 0px)));
+}
 /* Flotante WhatsApp */
 .whatsapp-float {
   position: fixed;
