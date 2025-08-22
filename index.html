@@ -16,15 +16,21 @@
   <canvas id="bg-canvas"></canvas>
 
 
-  <!-- Video de fondo, detrás de todo -->
+  <!-- Primer video de fondo -->
   <video id="bg-video" autoplay loop muted playsinline>
     <source src="video/fondo.mp4" type="video/mp4">
     <source src="video/fondo.webm" type="video/webm">
     Tu navegador no soporta video HTML5.
   </video>
+  <!-- Segundo video, debajo del primero y también de fondo -->
+  <video id="bg-video-secondary" autoplay loop muted playsinline>
+    <source src="video/fondo2.mp4" type="video/mp4">
+    <source src="video/fondo2.webm" type="video/webm">
+    Tu navegador no soporta video HTML5.
+  </video>
   <!-- Logos decorativos grandes en los lados -->
-  <img src="images/logo_lumart.png" alt="Logo LumArt" class="background-logo background-logo-left" />
-  <img src="images/logo_lumart.png" alt="Logo LumArt" class="background-logo background-logo-right" />
+  <img src="images/logo_lumart.jpg" alt="Logo LumArt" class="background-logo background-logo-left" />
+  <img src="images/logo_lumart.jpg" alt="Logo LumArt" class="background-logo background-logo-right" />
 
   <div class="lang-toggle">
     <button onclick="switchLang('es')">ES</button>
