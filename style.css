@@ -21,6 +21,104 @@ body, html {
   top: 1rem; right: 1rem;
   z-index: 10;
 }
+
+/* Videos de fondo estáticos y escalables */
+#bg-video,
+#bg-video-secondary {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 1;
+  pointer-events: none;
+  background: #000;
+}
+
+/* Flotante WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 18px rgba(32,32,32,0.16);
+  text-decoration: none;
+  transition: transform 0.2s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  width: 38px;
+  height: 38px;
+}
+/* Flotante Instagram */
+.insta-float {
+  position: fixed;
+  right: 5.2rem;
+  bottom: 1.6rem;
+  background: #fff;
+  box-shadow: 0 2px 18px rgba(228,64,95,0.18);
+  border-radius: 50%;
+  padding: 0.1em 0.1em;
+  transition: transform 0.2s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  width: 38px;
+  height: 38px;
+}
+/* Logo flotante, triple tamaño que WhatsApp */
+.logo-float {
+  position: fixed;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  z-index: 31;
+  width: 114px; /* 38px * 3 = 114px */
+  height: 114px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  box-shadow: 0 4px 24px #E4405F44;
+  transition: transform 0.2s, background 0.3s;
+}
+.logo-float img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 50%;
+  /* Puedes ajustar el tamaño aquí si quieres aún más grande */
+}
+.logo-float:hover {
+  background: #E4405F;
+  transform: scale(1.05) rotate(-8deg);
+}
+.logo-float img:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px #E4405F44);
+  transform: scale(1.08);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 600px) {
+  #bg-video,
+  #bg-video-secondary {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+  .logo-float {
+    width: 66px;
+    height: 66px;
+  }
+  .logo-float img {
+    width: 48px;
+    height: 48px;
+  }
+  .whatsapp-float, .insta-float { width: 28px; height: 28px;}
+}
+
 .lang-toggle button {
   background: #E4405F;
   color: #fff;
@@ -115,7 +213,7 @@ body, html {
   flex-wrap: wrap;
 }
 .lumart-logo {
-  height: 68px;
+  height: 124px;
   width: auto;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(64,64,64,0.18);
